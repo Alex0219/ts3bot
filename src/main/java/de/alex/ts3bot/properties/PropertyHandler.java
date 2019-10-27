@@ -11,8 +11,8 @@ public class PropertyHandler {
     Properties properties = new Properties();
 
     public void createPropertyFile() {
-        String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-        String appConfigPath = rootPath + "ts3bot.properties";
+
+        String appConfigPath = "ts3bot.properties";
 
         if (!new File(appConfigPath).exists()) {
             try {
@@ -34,8 +34,7 @@ public class PropertyHandler {
     }
 
     public void loadPropertyFile() {
-        String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-        String appConfigPath = rootPath + "ts3bot.properties";
+        String appConfigPath = "ts3bot.properties";
         try {
             properties.load(new FileInputStream(appConfigPath));
         } catch (IOException e) {
