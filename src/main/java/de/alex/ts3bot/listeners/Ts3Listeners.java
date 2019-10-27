@@ -14,8 +14,6 @@ public class Ts3Listeners {
                 if (e.getMessage().equalsIgnoreCase("!support")) {
                     if (!Bootstrap.getInstance().getTs3Connector().getApi().getClientByUId(e.getInvokerUniqueId()).isInServerGroup(Integer.parseInt(Bootstrap.getInstance().getPropertyHandler().getProperties().getProperty("SupportGroupID")))) {
                         Bootstrap.getInstance().getTs3Connector().getApi().addClientToServerGroup(Integer.parseInt(Bootstrap.getInstance().getPropertyHandler().getProperties().getProperty("SupportGroupID")), Bootstrap.getInstance().getTs3Connector().getApi().getClientByUId(e.getInvokerUniqueId()).getDatabaseId());
-
-
                         int currentSupportMembers = Bootstrap.getInstance().getTs3Connector().getApi().getServerGroupClients(Integer.parseInt(Bootstrap.getInstance().getPropertyHandler().getProperties().getProperty("SupportGroupID"))).size();
                         Bootstrap.getInstance().getTs3Connector().getApi().editChannel(Integer.parseInt(Bootstrap.getInstance().getPropertyHandler().getProperties().getProperty("SupportChannelID")), ChannelProperty.CHANNEL_NAME, "[" + currentSupportMembers + "]");
                     } else {
