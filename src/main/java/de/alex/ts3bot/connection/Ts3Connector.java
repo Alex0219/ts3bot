@@ -22,10 +22,11 @@ public class Ts3Connector {
         query.connect();
         api.login(Bootstrap.getInstance().getPropertyHandler().getProperties().getProperty("Username"), Bootstrap.getInstance().getPropertyHandler().getProperties().getProperty("Password"));
         api.selectVirtualServerByPort(Integer.parseInt(Bootstrap.getInstance().getPropertyHandler().getProperties().getProperty("Port")));
-        api.setNickname(Bootstrap.getInstance().getPropertyHandler().getProperties().getProperty("Nickname"));
+        if (!api.whoAmI().getNickname().equalsIgnoreCase(Bootstrap.getInstance().getPropertyHandler().getProperties().getProperty("Nickname"))) {
+            api.setNickname(Bootstrap.getInstance().getPropertyHandler().getProperties().getProperty("Nickname"));
+        }
         api.registerAllEvents();
     }
-
     public TS3Config getConfig() {
         return config;
     }

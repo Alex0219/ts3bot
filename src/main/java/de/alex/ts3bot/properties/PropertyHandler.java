@@ -26,6 +26,10 @@ public class PropertyHandler {
                 properties.setProperty("Nickname", "Support-Bot");
                 properties.setProperty("Username", "serveradmin");
                 properties.setProperty("Password", "abc");
+                properties.setProperty("UserNeedsHelp", "A user needs help!");
+                properties.setProperty("SupportChannelClosed", "Support Warteraum - Geschlossen");
+                properties.setProperty("SupportChannelOpen", "Support Warteraum - Offen");
+                properties.setProperty("SupportGroups", "1,1");
                 properties.store(new FileWriter(appConfigPath), "");
             } catch (IOException e) {
                 e.printStackTrace();
